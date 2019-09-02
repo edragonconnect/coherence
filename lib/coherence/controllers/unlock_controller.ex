@@ -109,7 +109,7 @@ defmodule Coherence.UnlockController do
   @doc false
   @spec clear_unlock_values(schema, module) :: nil | :ok | String.t
   def clear_unlock_values(user, user_schema) do
-    if user.unlock_token or user.locked_at do
+    if user.unlock_token || user.locked_at do
       user_schema.changeset(user, %{unlock_token: nil, locked_at: nil})
       schema =
         :unlock
